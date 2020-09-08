@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import math
@@ -12,7 +11,7 @@ import os
 import  random
 
 
-def Model(letter,num_of_epochs,BatchSize):
+def Model(letter,num_of_epochs,batchSize):
     data = []
     images = os.listdir("Dataset/Chars/"+letter+"/")
     print(images)
@@ -71,7 +70,7 @@ def Model(letter,num_of_epochs,BatchSize):
     discriminator.trainable = False
     GAN.compile(loss='binary_crossentropy',optimizer='adam')
 
-    batch_size = BatchSize
+    batch_size = batchSize
     my_data = mydata
     dataset=tf.data.Dataset.from_tensor_slices(my_data).shuffle(buffer_size = 1000)
 
